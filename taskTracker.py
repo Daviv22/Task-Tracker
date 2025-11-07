@@ -13,10 +13,10 @@ def add_task():
         "updatedAt": ""
     }
 
+    task["id"] = len(tasksList)
     description = input("Adicione uma descrição da tarefa: ")
     task["description"] = description
-    status = input("Adicione o status da tarefa: ")
-    task["status"] = status
+    task["status"] = "A fazer"
     task["createdAt"] = get_data()
 
     tasksList.append(task)
@@ -28,14 +28,21 @@ def update_task():
 
 
 def delete_task():
-    pass
+    id = int(input("Que tarefa você quer remover? "))
+    tasksList[:] = [item for item in tasksList if item["id"] != id]
+    for i, task in enumerate(tasksList):
+        task["id"] = i
 
 def list_tasks():
     for task in tasksList:
         print(task)
 
 def mark_task():
-    pass
+    id = int(input("Que tarefa você quer marcar? "))
+    print("Quer marcar como...")
+    print("\t1 - A fazer")
+    print("\t2 - Fazendo")
+    print("\t3 - Feito")
 
 def json_file():
     pass
