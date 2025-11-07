@@ -1,8 +1,26 @@
 import json
-import datetime
+from datetime import datetime
+
+tasksList = []
 
 def add_task():
-    pass
+
+    task = {
+        "id": "",
+        "description": "",
+        "status": "",
+        "createdAt": "",
+        "updatedAt": ""
+    }
+
+    description = input("Adicione uma descrição da tarefa: ")
+    task["description"] = description
+    status = input("Adicione o status da tarefa: ")
+    task["status"] = status
+    data = datetime.now()
+    task["createdAt"] = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}"
+
+    tasksList.append(task)
 
 def update_task():
     pass
@@ -11,21 +29,13 @@ def delete_task():
     pass
 
 def list_tasks():
-    pass
+    print(tasksList)
 
 def mark_task():
     pass
 
 def json_file():
-    tasksList = []
-
-    taskStructure = {
-        "id": "",
-        "description": "",
-        "status": "",
-        "createdAt": "",
-        "updatedAt": ""
-    }
+    pass
 
 def check_decision(decisao):
 
@@ -43,13 +53,16 @@ def check_decision(decisao):
     return None
 
 def run_app():
+
     while True:
+
         print("O que você gostaria de fazer: ")
         print("\t1 - Adicionar tarefa")
         print("\t2 - Atualizar tarefa")
         print("\t3 - Deletar tarefa")
         print("\t4 - Marcar tarefa como ...")
         print("\t5 - Listar tarefas ...")
+
         decisao = int(input("Digite: "))
         check_decision(decisao)
 
