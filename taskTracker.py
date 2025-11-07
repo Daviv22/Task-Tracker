@@ -28,7 +28,17 @@ def json_file():
     }
 
 def check_decision(decisao):
-    pass
+
+    if decisao == 1:
+        return add_task()
+    if decisao == 2:
+        return update_task()
+    if decisao == 3:
+        return delete_task()
+    if decisao == 4():
+        return mark_task()
+    if decisao == 5:
+        return list_tasks()
 
 def run_app():
     while True:
