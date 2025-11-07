@@ -23,13 +23,27 @@ def add_task():
     tasksList.append(task)
 
 def update_task():
-    pass
+    tarefa = int(input("Digite o id da tarefa: "))
+    print("O que você gostaria de mudar:")
+    print("\t1 - Descrição da tarefa")
+    print("\t2 - Status da tarefa")
+    escolha = int(input("Digite: "))
+
+    if escolha == 1:
+        tasksList[tarefa]["description"] = input("Digite a nova descrição: ")
+        data = datetime.now()
+        tasksList[tarefa]["updateAt"] = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}"
+    if escolha == 2:
+        data = datetime.now()
+        tasksList[tarefa]["status"] = input("Digite o novo status: ")
+        tasksList[tarefa]["updateAt"] = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}"
+
 
 def delete_task():
     pass
 
 def list_tasks():
-    print(tasksList)
+    pass
 
 def mark_task():
     pass
