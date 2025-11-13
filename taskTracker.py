@@ -71,13 +71,13 @@ def mark_task():
     send_json_file(tasksList)
 
 def get_json_file():
-    with open("teste.json", "r") as f:
+    with open("tasks.json", "r") as f:
         data = json.load(f)
 
     return data
 
 def send_json_file(tasksList):
-    with open("teste.json", "w") as f:
+    with open("tasks.json", "w") as f:
         json.dump(tasksList, f, indent=4)
 
 def check_decision(decisao):
