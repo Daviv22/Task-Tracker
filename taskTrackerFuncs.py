@@ -15,7 +15,7 @@ def add_task(task_name):
 
     task["id"] = len(tasksList)
     task["description"] = task_name
-    task["status"] = "A fazer"
+    task["status"] = "A Fazer"
     task["createdAt"] = get_data()
 
     tasksList.append(task)
