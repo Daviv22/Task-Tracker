@@ -1,5 +1,8 @@
 import json
 from datetime import datetime
+import os
+
+json_path = os.path.join(os.path.dirname(__file__), "tasks.json")
 
 def add_task(task_name):
 
@@ -44,7 +47,7 @@ def list_tasks(status):
         print("\n========== // ==========\n")
         print(f"ID: {task["id"]}")
         print(f"Description: {task["description"]}")
-        print(f"Status {task["status"]}")
+        print(f"Status: {task["status"]}")
         print(f"Created at: {task["createdAt"]}")
         if task["updatedAt"]:
             print(f"Updated at: {task["updatedAt"]}")
@@ -60,13 +63,13 @@ def mark_task(task_id, status):
     send_json_file(tasksList)
 
 def get_json_file():
-    with open("tasks.json", "r") as f:
+    with open(json_path, "r") as f:
         data = json.load(f)
 
     return data
 
 def send_json_file(tasksList):
-    with open("tasks.json", "w") as f:
+    with open(json_path, "w") as f:
         json.dump(tasksList, f, indent=4)
 
 def get_data():
